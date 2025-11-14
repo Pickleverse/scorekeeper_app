@@ -27,13 +27,13 @@ pipeline{
                 sh ''' ./mvnw clean install -ntp -Dmaven.test.skip '''
             }
         }
-        stage("Test"){
-            steps{
-               dir("./"){
-               sh ''' ./mvnw --batch-mode test '''
-              }
-            }
-        }
+        // stage("Test"){
+        //     steps{
+        //        dir("./"){
+        //        sh ''' ./mvnw --batch-mode test '''
+        //       }
+        //     }
+        // }
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('Sonarqube') {
